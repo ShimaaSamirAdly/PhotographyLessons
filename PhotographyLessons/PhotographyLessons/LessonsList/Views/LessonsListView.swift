@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LessonsListView.swift
 //  PhotographyLessons
 //
 //  Created by Shimaa on 30/12/2022.
@@ -8,39 +8,39 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct LessonsListView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    @State private var lessonsList: [LessonModel] = []
+    @ObservedObject private var lessonsListHandler = LessonsListViewHandler()
 
     var body: some View {
-        NavigationView {
+        ZStack {
+            ProgressView()
+                .isHidden(hidden: !(lessonsList.isEmpty && lessonsListHandler.isLoading), remove: true)
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                ForEach(lessonsList, id: \.id) { lesson in
+                    ZStack {
+                        LessonRowView(lesson: lesson)
+                        NavigationLink (destination: LessonDetailsView()) {}
+                            .opacity(0)
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
+            }.listStyle(.plain)
+             .isHidden(hidden: lessonsList.isEmpty && lessonsListHandler.isLoading, remove: true)
+             .refreshable {
+                lessonsList = await lessonsListHandler.getLessons()
+             }.redacted(reason: lessonsListHandler.isLoading ? .placeholder : [])
+        }.navigationTitle("Lessons")
+         .task {
+            lessonsList = await lessonsListHandler.getLessons()
+         }.errorAlert(error: $lessonsListHandler.errorMsg)
     }
+
 
     private func addItem() {
         withAnimation {
@@ -74,15 +74,9 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
-struct ContentView_Previews: PreviewProvider {
+struct LessonsListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        LessonsListView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
