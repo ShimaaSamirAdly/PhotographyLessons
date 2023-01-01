@@ -59,9 +59,9 @@ extension LessonDetailsViewController {
     
     func setUpPlayBtnState() {
         if player?.timeControlStatus == .playing {
-            playBtn.setImage(UIImage(named:  "ic_pauseVideo"), for: .normal)
+            playBtn.setImage(UIImage(named:  "ic_pauseVideo")?.withRenderingMode(.alwaysTemplate), for: .normal)
         } else {
-            playBtn.setImage(UIImage(named: "ic_playVideo"), for: .normal)
+            playBtn.setImage(UIImage(named: "ic_playVideo")?.withRenderingMode(.alwaysTemplate), for: .normal)
             
         }
         showHidePlayBtn()

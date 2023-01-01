@@ -10,13 +10,14 @@ import SwiftUI
 @main
 struct PhotographyLessonsApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    let persistenceController = PersistenceController.shared
+    @StateObject var databaseManager = DatabaseManager.shared
 
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 LessonsListView()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    .environment(\.managedObjectContext, databaseManager.container.viewContext)
+                    .navigationViewStyle(.stack)
             }
         }
     }

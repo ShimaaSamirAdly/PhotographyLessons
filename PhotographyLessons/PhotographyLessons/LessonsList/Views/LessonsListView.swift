@@ -10,11 +10,10 @@ import CoreData
 
 struct LessonsListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Lesson.timestamp, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var cachedLessons: FetchedResults<Lesson>
     @State private var lessonsList: [LessonModel] = []
     @StateObject private var lessonsListHandler = LessonsListViewHandler()
 
@@ -22,14 +21,12 @@ struct LessonsListView: View {
         ZStack {
             ProgressView()
                 .isHidden(hidden: !(lessonsList.isEmpty && lessonsListHandler.isLoading), remove: true)
-            List {
-                ForEach(lessonsList, id: \.id) { lesson in
-                    ZStack {
-                        LessonRowView(lesson: lesson)
-                        NavigationLink (destination: LessonDetailsView(lessonsList: lessonsList, selectedLesson: lesson)
-                            .navigationBarTitleDisplayMode(.inline)) {}
-                            .opacity(0)
-                    }
+            List(lessonsList, id: \.id) { lesson in
+                ZStack {
+                    LessonRowView(lesson: lesson)
+                    NavigationLink (destination: LessonDetailsView(lessonsList: lessonsList, selectedLesson: lesson)
+                        .navigationBarTitleDisplayMode(.inline)) {}
+                        .opacity(0)
                 }
             }.listStyle(.plain)
              .isHidden(hidden: lessonsList.isEmpty && lessonsListHandler.isLoading, remove: true)
@@ -40,28 +37,41 @@ struct LessonsListView: View {
          .task {
             lessonsList = await lessonsListHandler.getLessons()
          }.errorAlert(error: $lessonsListHandler.errorMsg)
+          .onChange(of: lessonsListHandler.showCachedData) { isShowCached in
+            if isShowCached {
+                lessonsList = lessonsListHandler.getCachedLessons(cachedLessons: Array(cachedLessons))
+            }
+          }
     }
-
 
     private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        deleteItems()
+        for lesson in lessonsList {
+            withAnimation {
+                let newLesson = Lesson(context: viewContext)
+                newLesson.timestamp = Date()
+                newLesson.id = Int32(lesson.id)
+                newLesson.name = lesson.name
+                newLesson.desc = lesson.description
+                newLesson.videoUrl = lesson.videoUrl
+                newLesson.lessonImg = lesson.lessonImg
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                do {
+                    try viewContext.save()
+                } catch {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    let nsError = error as NSError
+                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                }
             }
         }
+        
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    private func deleteItems() {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            cachedLessons.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -78,6 +88,6 @@ struct LessonsListView: View {
 
 struct LessonsListView_Previews: PreviewProvider {
     static var previews: some View {
-        LessonsListView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        LessonsListView().environment(\.managedObjectContext, DatabaseManager.preview.container.viewContext)
     }
 }

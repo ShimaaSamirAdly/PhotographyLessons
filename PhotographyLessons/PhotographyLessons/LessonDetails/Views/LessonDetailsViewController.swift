@@ -34,6 +34,8 @@ class LessonDetailsViewController: UIViewController {
         super.viewDidAppear(animated)
         refreshViewsData()
         setUpPlayBtnState()
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait, forKey: "orientation")
+        self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -48,8 +50,11 @@ class LessonDetailsViewController: UIViewController {
         if UIDevice.current.orientation.isLandscape {
             setUpFullScreenVideo()
         } else {
-            videoPlayerController.dismiss(animated: true)
-            fullScreenOn = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                self?.videoPlayerController.dismiss(animated: true)
+                self?.fullScreenOn = false
+            }
+            
         }
     }
     
@@ -89,6 +94,7 @@ class LessonDetailsViewController: UIViewController {
         playBtn.centerXAnchor.constraint(equalTo: videoContainer.centerXAnchor).isActive = true
         playBtn.centerYAnchor.constraint(equalTo: videoContainer.centerYAnchor).isActive = true
         playBtn.addTarget(self, action: #selector(playPauseVideo), for: .touchUpInside)
+        playBtn.tintColor = .white
     }
     
     func setUpTitleLabel() {

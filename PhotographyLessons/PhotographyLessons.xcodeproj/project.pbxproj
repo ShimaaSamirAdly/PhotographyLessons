@@ -10,7 +10,7 @@
 		C73E6E4B295F8E31007FA22A /* PhotographyLessonsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6E4A295F8E31007FA22A /* PhotographyLessonsApp.swift */; };
 		C73E6E4F295F8E33007FA22A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E6E4E295F8E33007FA22A /* Assets.xcassets */; };
 		C73E6E52295F8E33007FA22A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E6E51295F8E33007FA22A /* Preview Assets.xcassets */; };
-		C73E6E54295F8E33007FA22A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6E53295F8E33007FA22A /* Persistence.swift */; };
+		C73E6E54295F8E33007FA22A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6E53295F8E33007FA22A /* DatabaseManager.swift */; };
 		C73E6E57295F8E33007FA22A /* PhotographyLessons.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C73E6E55295F8E33007FA22A /* PhotographyLessons.xcdatamodeld */; };
 		C73E6E61295F8E33007FA22A /* PhotographyLessonsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6E60295F8E33007FA22A /* PhotographyLessonsTests.swift */; };
 		C73E6E6B295F8E33007FA22A /* PhotographyLessonsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6E6A295F8E33007FA22A /* PhotographyLessonsUITests.swift */; };
@@ -42,6 +42,9 @@
 		C74BE2B229605AB90008CCD9 /* LessonDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BE2B129605AB90008CCD9 /* LessonDetailsViewModel.swift */; };
 		C74BE2B4296074010008CCD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BE2B3296074010008CCD9 /* AppDelegate.swift */; };
 		C75BD17B2961F5CE009C0783 /* LessonDetails+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD17A2961F5CE009C0783 /* LessonDetails+Video.swift */; };
+		C75BD17D29621DDE009C0783 /* CacheLessonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD17C29621DDE009C0783 /* CacheLessonsUseCase.swift */; };
+		C75BD18029622000009C0783 /* LessonCachingRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD17F29622000009C0783 /* LessonCachingRepo.swift */; };
+		C75BD1822962202F009C0783 /* LessonCachingRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD1812962202F009C0783 /* LessonCachingRepoImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +69,7 @@
 		C73E6E4A295F8E31007FA22A /* PhotographyLessonsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyLessonsApp.swift; sourceTree = "<group>"; };
 		C73E6E4E295F8E33007FA22A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73E6E51295F8E33007FA22A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C73E6E53295F8E33007FA22A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		C73E6E53295F8E33007FA22A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C73E6E56295F8E33007FA22A /* PhotographyLessons.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotographyLessons.xcdatamodel; sourceTree = "<group>"; };
 		C73E6E5C295F8E33007FA22A /* PhotographyLessonsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotographyLessonsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E6E60295F8E33007FA22A /* PhotographyLessonsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyLessonsTests.swift; sourceTree = "<group>"; };
@@ -99,6 +102,9 @@
 		C74BE2B129605AB90008CCD9 /* LessonDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsViewModel.swift; sourceTree = "<group>"; };
 		C74BE2B3296074010008CCD9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C75BD17A2961F5CE009C0783 /* LessonDetails+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LessonDetails+Video.swift"; sourceTree = "<group>"; };
+		C75BD17C29621DDE009C0783 /* CacheLessonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheLessonsUseCase.swift; sourceTree = "<group>"; };
+		C75BD17F29622000009C0783 /* LessonCachingRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCachingRepo.swift; sourceTree = "<group>"; };
+		C75BD1812962202F009C0783 /* LessonCachingRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCachingRepoImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +160,7 @@
 				C73E6EB2295F977B007FA22A /* LessonDetails */,
 				C73E6EB8295FA6D4007FA22A /* Extensions */,
 				C73E6E4E295F8E33007FA22A /* Assets.xcassets */,
-				C73E6E53295F8E33007FA22A /* Persistence.swift */,
+				C73E6E53295F8E33007FA22A /* DatabaseManager.swift */,
 				C73E6E55295F8E33007FA22A /* PhotographyLessons.xcdatamodeld */,
 				C73E6E4A295F8E31007FA22A /* PhotographyLessonsApp.swift */,
 				C74BE2B3296074010008CCD9 /* AppDelegate.swift */,
@@ -277,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				C73E6E98295F910D007FA22A /* GetLessonsUseCase.swift */,
+				C75BD17C29621DDE009C0783 /* CacheLessonsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -312,6 +319,7 @@
 		C73E6EA0295F910D007FA22A /* Repos */ = {
 			isa = PBXGroup;
 			children = (
+				C75BD17E29621FED009C0783 /* CachingRepos */,
 				C73E6EA1295F910D007FA22A /* LessonsRepoImpl.swift */,
 				C73E6EA2295F910D007FA22A /* LessonsRepo.swift */,
 			);
@@ -360,6 +368,15 @@
 				C74BE2B129605AB90008CCD9 /* LessonDetailsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C75BD17E29621FED009C0783 /* CachingRepos */ = {
+			isa = PBXGroup;
+			children = (
+				C75BD17F29622000009C0783 /* LessonCachingRepo.swift */,
+				C75BD1812962202F009C0783 /* LessonCachingRepoImpl.swift */,
+			);
+			path = CachingRepos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,7 +524,7 @@
 				C73E6EB1295F9605007FA22A /* LessonRowView.swift in Sources */,
 				C73E6EAB295F910D007FA22A /* LessonsRepoImpl.swift in Sources */,
 				C73E6EA5295F910D007FA22A /* LessonModel.swift in Sources */,
-				C73E6E54295F8E33007FA22A /* Persistence.swift in Sources */,
+				C73E6E54295F8E33007FA22A /* DatabaseManager.swift in Sources */,
 				C73E6E89295F8F7A007FA22A /* NetworkClient.swift in Sources */,
 				C73E6E8B295F8F7A007FA22A /* HttpMethodsEnum.swift in Sources */,
 				C73E6E8F295F8F7A007FA22A /* DictionaryExtension.swift in Sources */,
@@ -524,9 +541,12 @@
 				C73E6E92295F8F7A007FA22A /* NetworkApisProtocol.swift in Sources */,
 				C73E6E57295F8E33007FA22A /* PhotographyLessons.xcdatamodeld in Sources */,
 				C73E6E90295F8F7A007FA22A /* NetworkHandler.swift in Sources */,
+				C75BD18029622000009C0783 /* LessonCachingRepo.swift in Sources */,
+				C75BD17D29621DDE009C0783 /* CacheLessonsUseCase.swift in Sources */,
 				C75BD17B2961F5CE009C0783 /* LessonDetails+Video.swift in Sources */,
 				C73E6EA9295F910D007FA22A /* LessonsListView+Handler.swift in Sources */,
 				C73E6EAA295F910D007FA22A /* LessonsProvider.swift in Sources */,
+				C75BD1822962202F009C0783 /* LessonCachingRepoImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,7 +705,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhotographyLessons/Preview Content\"";
-				DEVELOPMENT_TEAM = F433CSXY33;
+				DEVELOPMENT_TEAM = U98MB87JNM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -694,6 +714,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -718,7 +739,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhotographyLessons/Preview Content\"";
-				DEVELOPMENT_TEAM = F433CSXY33;
+				DEVELOPMENT_TEAM = U98MB87JNM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -727,6 +748,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
