@@ -38,6 +38,10 @@
 		C73E6EB4295F979C007FA22A /* LessonDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6EB3295F979C007FA22A /* LessonDetailsView.swift */; };
 		C73E6EB7295F9D0C007FA22A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C73E6EB6295F9D0C007FA22A /* Kingfisher */; };
 		C73E6EBA295FA6E7007FA22A /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6EB9295FA6E7007FA22A /* ViewExtension.swift */; };
+		C73E6EBC295FB25C007FA22A /* LessonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6EBB295FB25C007FA22A /* LessonDetailsViewController.swift */; };
+		C74BE2B229605AB90008CCD9 /* LessonDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BE2B129605AB90008CCD9 /* LessonDetailsViewModel.swift */; };
+		C74BE2B4296074010008CCD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BE2B3296074010008CCD9 /* AppDelegate.swift */; };
+		C75BD17B2961F5CE009C0783 /* LessonDetails+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD17A2961F5CE009C0783 /* LessonDetails+Video.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,10 @@
 		C73E6EB0295F9604007FA22A /* LessonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRowView.swift; sourceTree = "<group>"; };
 		C73E6EB3295F979C007FA22A /* LessonDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsView.swift; sourceTree = "<group>"; };
 		C73E6EB9295FA6E7007FA22A /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		C73E6EBB295FB25C007FA22A /* LessonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsViewController.swift; sourceTree = "<group>"; };
+		C74BE2B129605AB90008CCD9 /* LessonDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsViewModel.swift; sourceTree = "<group>"; };
+		C74BE2B3296074010008CCD9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C75BD17A2961F5CE009C0783 /* LessonDetails+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LessonDetails+Video.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +157,7 @@
 				C73E6E53295F8E33007FA22A /* Persistence.swift */,
 				C73E6E55295F8E33007FA22A /* PhotographyLessons.xcdatamodeld */,
 				C73E6E4A295F8E31007FA22A /* PhotographyLessonsApp.swift */,
+				C74BE2B3296074010008CCD9 /* AppDelegate.swift */,
 				C73E6E79295F8F7A007FA22A /* Networking */,
 				C73E6E50295F8E33007FA22A /* Preview Content */,
 			);
@@ -321,7 +330,8 @@
 		C73E6EB2295F977B007FA22A /* LessonDetails */ = {
 			isa = PBXGroup;
 			children = (
-				C73E6EB3295F979C007FA22A /* LessonDetailsView.swift */,
+				C74BE2B029605AA60008CCD9 /* ViewModel */,
+				C74BE2AF29605A9C0008CCD9 /* Views */,
 			);
 			path = LessonDetails;
 			sourceTree = "<group>";
@@ -332,6 +342,24 @@
 				C73E6EB9295FA6E7007FA22A /* ViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C74BE2AF29605A9C0008CCD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C73E6EB3295F979C007FA22A /* LessonDetailsView.swift */,
+				C73E6EBB295FB25C007FA22A /* LessonDetailsViewController.swift */,
+				C75BD17A2961F5CE009C0783 /* LessonDetails+Video.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C74BE2B029605AA60008CCD9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C74BE2B129605AB90008CCD9 /* LessonDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +502,7 @@
 				C73E6EAD295F910D007FA22A /* LessonsResponse.swift in Sources */,
 				C73E6EAC295F910D007FA22A /* LessonsRepo.swift in Sources */,
 				C73E6E8E295F8F7A007FA22A /* URLRequestExtension.swift in Sources */,
+				C74BE2B4296074010008CCD9 /* AppDelegate.swift in Sources */,
 				C73E6EA6295F910D007FA22A /* GetLessonsUseCase.swift in Sources */,
 				C73E6EB1295F9605007FA22A /* LessonRowView.swift in Sources */,
 				C73E6EAB295F910D007FA22A /* LessonsRepoImpl.swift in Sources */,
@@ -485,14 +514,17 @@
 				C73E6EBA295FA6E7007FA22A /* ViewExtension.swift in Sources */,
 				C73E6EA8295F910D007FA22A /* LessonsListView.swift in Sources */,
 				C73E6E8A295F8F7A007FA22A /* ApiErrorsEnum.swift in Sources */,
+				C73E6EBC295FB25C007FA22A /* LessonDetailsViewController.swift in Sources */,
 				C73E6EAF295F92F3007FA22A /* LessonsMainResponse.swift in Sources */,
 				C73E6EB4295F979C007FA22A /* LessonDetailsView.swift in Sources */,
 				C73E6E91295F8F7A007FA22A /* NetworkReachability.swift in Sources */,
 				C73E6E4B295F8E31007FA22A /* PhotographyLessonsApp.swift in Sources */,
+				C74BE2B229605AB90008CCD9 /* LessonDetailsViewModel.swift in Sources */,
 				C73E6E8C295F8F7A007FA22A /* ParametersTypeEnum.swift in Sources */,
 				C73E6E92295F8F7A007FA22A /* NetworkApisProtocol.swift in Sources */,
 				C73E6E57295F8E33007FA22A /* PhotographyLessons.xcdatamodeld in Sources */,
 				C73E6E90295F8F7A007FA22A /* NetworkHandler.swift in Sources */,
+				C75BD17B2961F5CE009C0783 /* LessonDetails+Video.swift in Sources */,
 				C73E6EA9295F910D007FA22A /* LessonsListView+Handler.swift in Sources */,
 				C73E6EAA295F910D007FA22A /* LessonsProvider.swift in Sources */,
 			);

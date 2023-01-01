@@ -13,7 +13,7 @@ extension LessonsListView {
         private var lessonsUseCase = GetLessonsUseCase(repo: LessonsRepoImpl())
         @Published var errorMsg = ""
         @Published var isLoading = false
-       
+        
         func getLessons() async -> [LessonModel] {
             isLoading = true
             let response = await lessonsUseCase.getLessons()

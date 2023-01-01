@@ -16,7 +16,7 @@ struct LessonsListView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     @State private var lessonsList: [LessonModel] = []
-    @ObservedObject private var lessonsListHandler = LessonsListViewHandler()
+    @StateObject private var lessonsListHandler = LessonsListViewHandler()
 
     var body: some View {
         ZStack {
@@ -26,7 +26,8 @@ struct LessonsListView: View {
                 ForEach(lessonsList, id: \.id) { lesson in
                     ZStack {
                         LessonRowView(lesson: lesson)
-                        NavigationLink (destination: LessonDetailsView()) {}
+                        NavigationLink (destination: LessonDetailsView(lessonsList: lessonsList, selectedLesson: lesson)
+                            .navigationBarTitleDisplayMode(.inline)) {}
                             .opacity(0)
                     }
                 }
