@@ -41,10 +41,21 @@
 		C73E6EBC295FB25C007FA22A /* LessonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6EBB295FB25C007FA22A /* LessonDetailsViewController.swift */; };
 		C74BE2B229605AB90008CCD9 /* LessonDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BE2B129605AB90008CCD9 /* LessonDetailsViewModel.swift */; };
 		C74BE2B4296074010008CCD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74BE2B3296074010008CCD9 /* AppDelegate.swift */; };
+		C75A2D492964D7EB00D367C6 /* ALProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = C75A2D482964D7EB00D367C6 /* ALProgressView */; };
+		C75A2D552964E45B00D367C6 /* ObserveDownloadProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75A2D542964E45B00D367C6 /* ObserveDownloadProgress.swift */; };
+		C75A2D582964EB7F00D367C6 /* DownloadLessonRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75A2D572964EB7F00D367C6 /* DownloadLessonRepo.swift */; };
+		C75A2D5A2964EB9300D367C6 /* CancelLessonRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75A2D592964EB9300D367C6 /* CancelLessonRepo.swift */; };
+		C75A2D5C2964EBA700D367C6 /* CheckDownloadStateRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75A2D5B2964EBA700D367C6 /* CheckDownloadStateRepo.swift */; };
+		C75A2D5E2964EBB800D367C6 /* ObserveDownloadRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75A2D5D2964EBB800D367C6 /* ObserveDownloadRepo.swift */; };
 		C75BD17B2961F5CE009C0783 /* LessonDetails+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD17A2961F5CE009C0783 /* LessonDetails+Video.swift */; };
 		C75BD17D29621DDE009C0783 /* CacheLessonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD17C29621DDE009C0783 /* CacheLessonsUseCase.swift */; };
 		C75BD18029622000009C0783 /* LessonCachingRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD17F29622000009C0783 /* LessonCachingRepo.swift */; };
 		C75BD1822962202F009C0783 /* LessonCachingRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75BD1812962202F009C0783 /* LessonCachingRepoImpl.swift */; };
+		C75E32252963750300659441 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75E32242963750300659441 /* DownloadManager.swift */; };
+		C75E322A2963956C00659441 /* DownloadRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75E32292963956C00659441 /* DownloadRepoImpl.swift */; };
+		C75E322C2963962A00659441 /* DownloadLessonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75E322B2963962A00659441 /* DownloadLessonUseCase.swift */; };
+		C75E322E2963963A00659441 /* CancelLessonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75E322D2963963A00659441 /* CancelLessonUseCase.swift */; };
+		C75E32302963965000659441 /* CheckDownloadStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75E322F2963964F00659441 /* CheckDownloadStateUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,10 +112,20 @@
 		C73E6EBB295FB25C007FA22A /* LessonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsViewController.swift; sourceTree = "<group>"; };
 		C74BE2B129605AB90008CCD9 /* LessonDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsViewModel.swift; sourceTree = "<group>"; };
 		C74BE2B3296074010008CCD9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C75A2D542964E45B00D367C6 /* ObserveDownloadProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserveDownloadProgress.swift; sourceTree = "<group>"; };
+		C75A2D572964EB7F00D367C6 /* DownloadLessonRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadLessonRepo.swift; sourceTree = "<group>"; };
+		C75A2D592964EB9300D367C6 /* CancelLessonRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelLessonRepo.swift; sourceTree = "<group>"; };
+		C75A2D5B2964EBA700D367C6 /* CheckDownloadStateRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDownloadStateRepo.swift; sourceTree = "<group>"; };
+		C75A2D5D2964EBB800D367C6 /* ObserveDownloadRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserveDownloadRepo.swift; sourceTree = "<group>"; };
 		C75BD17A2961F5CE009C0783 /* LessonDetails+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LessonDetails+Video.swift"; sourceTree = "<group>"; };
 		C75BD17C29621DDE009C0783 /* CacheLessonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheLessonsUseCase.swift; sourceTree = "<group>"; };
 		C75BD17F29622000009C0783 /* LessonCachingRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCachingRepo.swift; sourceTree = "<group>"; };
 		C75BD1812962202F009C0783 /* LessonCachingRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCachingRepoImpl.swift; sourceTree = "<group>"; };
+		C75E32242963750300659441 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		C75E32292963956C00659441 /* DownloadRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadRepoImpl.swift; sourceTree = "<group>"; };
+		C75E322B2963962A00659441 /* DownloadLessonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadLessonUseCase.swift; sourceTree = "<group>"; };
+		C75E322D2963963A00659441 /* CancelLessonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelLessonUseCase.swift; sourceTree = "<group>"; };
+		C75E322F2963964F00659441 /* CheckDownloadStateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDownloadStateUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73E6EB7295F9D0C007FA22A /* Kingfisher in Frameworks */,
+				C75A2D492964D7EB00D367C6 /* ALProgressView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +222,7 @@
 			children = (
 				C73E6E7A295F8F7A007FA22A /* NetworkClient.swift */,
 				C73E6E7B295F8F7A007FA22A /* MainFiles */,
+				C75E32242963750300659441 /* DownloadManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -265,6 +288,7 @@
 		C73E6E94295F910D007FA22A /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
+				C75A2D5F2964ECA900D367C6 /* Repos */,
 				C73E6E95295F910D007FA22A /* Models */,
 				C73E6E97295F910D007FA22A /* UseCases */,
 			);
@@ -302,7 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				C73E6E9E295F910D007FA22A /* DataSource */,
-				C73E6EA0295F910D007FA22A /* Repos */,
+				C73E6EA0295F910D007FA22A /* ReposImpl */,
 				C73E6EA3295F910D007FA22A /* Models */,
 			);
 			path = DataLayer;
@@ -316,14 +340,13 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
-		C73E6EA0295F910D007FA22A /* Repos */ = {
+		C73E6EA0295F910D007FA22A /* ReposImpl */ = {
 			isa = PBXGroup;
 			children = (
 				C75BD17E29621FED009C0783 /* CachingRepos */,
 				C73E6EA1295F910D007FA22A /* LessonsRepoImpl.swift */,
-				C73E6EA2295F910D007FA22A /* LessonsRepo.swift */,
 			);
-			path = Repos;
+			path = ReposImpl;
 			sourceTree = "<group>";
 		};
 		C73E6EA3295F910D007FA22A /* Models */ = {
@@ -338,6 +361,8 @@
 		C73E6EB2295F977B007FA22A /* LessonDetails */ = {
 			isa = PBXGroup;
 			children = (
+				C75A2D512964E40600D367C6 /* DomainLayer */,
+				C75A2D502964E3FF00D367C6 /* DataLayer */,
 				C74BE2B029605AA60008CCD9 /* ViewModel */,
 				C74BE2AF29605A9C0008CCD9 /* Views */,
 			);
@@ -370,13 +395,76 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C75A2D502964E3FF00D367C6 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C75A2D522964E41300D367C6 /* ReposImpl */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		C75A2D512964E40600D367C6 /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C75A2D562964EB5F00D367C6 /* Repos */,
+				C75A2D532964E42B00D367C6 /* UseCases */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		C75A2D522964E41300D367C6 /* ReposImpl */ = {
+			isa = PBXGroup;
+			children = (
+				C75E32262963947C00659441 /* DownloadRepos */,
+			);
+			path = ReposImpl;
+			sourceTree = "<group>";
+		};
+		C75A2D532964E42B00D367C6 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				C75E322B2963962A00659441 /* DownloadLessonUseCase.swift */,
+				C75E322D2963963A00659441 /* CancelLessonUseCase.swift */,
+				C75E322F2963964F00659441 /* CheckDownloadStateUseCase.swift */,
+				C75A2D542964E45B00D367C6 /* ObserveDownloadProgress.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		C75A2D562964EB5F00D367C6 /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				C75A2D572964EB7F00D367C6 /* DownloadLessonRepo.swift */,
+				C75A2D592964EB9300D367C6 /* CancelLessonRepo.swift */,
+				C75A2D5B2964EBA700D367C6 /* CheckDownloadStateRepo.swift */,
+				C75A2D5D2964EBB800D367C6 /* ObserveDownloadRepo.swift */,
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
+		C75A2D5F2964ECA900D367C6 /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				C73E6EA2295F910D007FA22A /* LessonsRepo.swift */,
+				C75BD17F29622000009C0783 /* LessonCachingRepo.swift */,
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
 		C75BD17E29621FED009C0783 /* CachingRepos */ = {
 			isa = PBXGroup;
 			children = (
-				C75BD17F29622000009C0783 /* LessonCachingRepo.swift */,
 				C75BD1812962202F009C0783 /* LessonCachingRepoImpl.swift */,
 			);
 			path = CachingRepos;
+			sourceTree = "<group>";
+		};
+		C75E32262963947C00659441 /* DownloadRepos */ = {
+			isa = PBXGroup;
+			children = (
+				C75E32292963956C00659441 /* DownloadRepoImpl.swift */,
+			);
+			path = DownloadRepos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +485,7 @@
 			name = PhotographyLessons;
 			packageProductDependencies = (
 				C73E6EB6295F9D0C007FA22A /* Kingfisher */,
+				C75A2D482964D7EB00D367C6 /* ALProgressView */,
 			);
 			productName = PhotographyLessons;
 			productReference = C73E6E47295F8E31007FA22A /* PhotographyLessons.app */;
@@ -472,6 +561,7 @@
 			mainGroup = C73E6E3E295F8E31007FA22A;
 			packageReferences = (
 				C73E6EB5295F9D0C007FA22A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C75A2D472964D7EB00D367C6 /* XCRemoteSwiftPackageReference "ALProgressView" */,
 			);
 			productRefGroup = C73E6E48295F8E31007FA22A /* Products */;
 			projectDirPath = "";
@@ -516,19 +606,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73E6E8D295F8F7A007FA22A /* MainResonseModel.swift in Sources */,
+				C75E32252963750300659441 /* DownloadManager.swift in Sources */,
 				C73E6EAD295F910D007FA22A /* LessonsResponse.swift in Sources */,
 				C73E6EAC295F910D007FA22A /* LessonsRepo.swift in Sources */,
 				C73E6E8E295F8F7A007FA22A /* URLRequestExtension.swift in Sources */,
 				C74BE2B4296074010008CCD9 /* AppDelegate.swift in Sources */,
+				C75E322E2963963A00659441 /* CancelLessonUseCase.swift in Sources */,
 				C73E6EA6295F910D007FA22A /* GetLessonsUseCase.swift in Sources */,
 				C73E6EB1295F9605007FA22A /* LessonRowView.swift in Sources */,
 				C73E6EAB295F910D007FA22A /* LessonsRepoImpl.swift in Sources */,
 				C73E6EA5295F910D007FA22A /* LessonModel.swift in Sources */,
 				C73E6E54295F8E33007FA22A /* DatabaseManager.swift in Sources */,
+				C75A2D582964EB7F00D367C6 /* DownloadLessonRepo.swift in Sources */,
 				C73E6E89295F8F7A007FA22A /* NetworkClient.swift in Sources */,
+				C75E322A2963956C00659441 /* DownloadRepoImpl.swift in Sources */,
 				C73E6E8B295F8F7A007FA22A /* HttpMethodsEnum.swift in Sources */,
+				C75E322C2963962A00659441 /* DownloadLessonUseCase.swift in Sources */,
 				C73E6E8F295F8F7A007FA22A /* DictionaryExtension.swift in Sources */,
 				C73E6EBA295FA6E7007FA22A /* ViewExtension.swift in Sources */,
+				C75A2D5A2964EB9300D367C6 /* CancelLessonRepo.swift in Sources */,
 				C73E6EA8295F910D007FA22A /* LessonsListView.swift in Sources */,
 				C73E6E8A295F8F7A007FA22A /* ApiErrorsEnum.swift in Sources */,
 				C73E6EBC295FB25C007FA22A /* LessonDetailsViewController.swift in Sources */,
@@ -538,12 +634,16 @@
 				C73E6E4B295F8E31007FA22A /* PhotographyLessonsApp.swift in Sources */,
 				C74BE2B229605AB90008CCD9 /* LessonDetailsViewModel.swift in Sources */,
 				C73E6E8C295F8F7A007FA22A /* ParametersTypeEnum.swift in Sources */,
+				C75A2D5C2964EBA700D367C6 /* CheckDownloadStateRepo.swift in Sources */,
 				C73E6E92295F8F7A007FA22A /* NetworkApisProtocol.swift in Sources */,
 				C73E6E57295F8E33007FA22A /* PhotographyLessons.xcdatamodeld in Sources */,
+				C75A2D552964E45B00D367C6 /* ObserveDownloadProgress.swift in Sources */,
+				C75E32302963965000659441 /* CheckDownloadStateUseCase.swift in Sources */,
 				C73E6E90295F8F7A007FA22A /* NetworkHandler.swift in Sources */,
 				C75BD18029622000009C0783 /* LessonCachingRepo.swift in Sources */,
 				C75BD17D29621DDE009C0783 /* CacheLessonsUseCase.swift in Sources */,
 				C75BD17B2961F5CE009C0783 /* LessonDetails+Video.swift in Sources */,
+				C75A2D5E2964EBB800D367C6 /* ObserveDownloadRepo.swift in Sources */,
 				C73E6EA9295F910D007FA22A /* LessonsListView+Handler.swift in Sources */,
 				C73E6EAA295F910D007FA22A /* LessonsProvider.swift in Sources */,
 				C75BD1822962202F009C0783 /* LessonCachingRepoImpl.swift in Sources */,
@@ -891,6 +991,14 @@
 				kind = branch;
 			};
 		};
+		C75A2D472964D7EB00D367C6 /* XCRemoteSwiftPackageReference "ALProgressView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alxrguz/ALProgressView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -898,6 +1006,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C73E6EB5295F9D0C007FA22A /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C75A2D482964D7EB00D367C6 /* ALProgressView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C75A2D472964D7EB00D367C6 /* XCRemoteSwiftPackageReference "ALProgressView" */;
+			productName = ALProgressView;
 		};
 /* End XCSwiftPackageProductDependency section */
 

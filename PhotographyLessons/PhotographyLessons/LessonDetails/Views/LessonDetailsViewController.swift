@@ -8,6 +8,7 @@
 import UIKit
 import AVKit
 import Combine
+import ALProgressView
 
 class LessonDetailsViewController: UIViewController {
     var videoContainer = UIView()
@@ -18,6 +19,7 @@ class LessonDetailsViewController: UIViewController {
     var titleLabel = UILabel()
     var descriptionLabel = UILabel()
     var nextBtn = UIButton()
+    lazy var circularProgress = ALProgressRing()
     
     var fullScreenOn = false
     var viewModel: LessonDetailsViewModel?
@@ -28,14 +30,15 @@ class LessonDetailsViewController: UIViewController {
         setUpObservables()
         setUpUI()
         setUpVideoState()
+        viewModel?.checkIfLessonDownloading()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         refreshViewsData()
         setUpPlayBtnState()
-        UIDevice.current.setValue(UIInterfaceOrientation.portrait, forKey: "orientation")
-        self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
+//        UIDevice.current.setValue(UIInterfaceOrientation.portrait, forKey: "orientation")
+//        self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,6 +67,21 @@ class LessonDetailsViewController: UIViewController {
             guard let self = self else { return }
             self.setUpVideoState()
             self.refreshViewsData()
+        }.store(in: &viewModel.cancellableSet)
+        
+        viewModel.showProgressViewPassThrough.sink { [weak self] showProgress in
+            guard let self = self else { return }
+            if showProgress {
+                self.setUpCancelButton()
+                self.setUpProgressView()
+            } else {
+                self.setUpDownloadView()
+            }
+        }.store(in: &viewModel.cancellableSet)
+        
+        viewModel.progressCountPassThrough.sink { [weak self] progressValue in
+            guard let self = self else { return }
+            self.circularProgress.setProgress(Float(progressValue), animated: true)
         }.store(in: &viewModel.cancellableSet)
     }
     
@@ -154,5 +172,54 @@ class LessonDetailsViewController: UIViewController {
     
     @objc func nextBtnPressed() {
         viewModel?.showNextLessonPassThrough.send(())
+    }
+    
+    func setUpProgressView() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.circularProgress.lineWidth = 1
+            self.circularProgress.startColor = .systemBlue
+            self.circularProgress.endColor = .systemBlue
+            self.circularProgress.translatesAutoresizingMaskIntoConstraints = false
+            self.circularProgress.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            self.circularProgress.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            let progressBarButton = UIBarButtonItem(customView: self.circularProgress)
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItems?.append(progressBarButton)
+        }
+    }
+    
+    func setUpCancelButton() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let cancelBtn = UIButton()
+            cancelBtn.setTitle("Cancel", for: .normal)
+            cancelBtn.setTitleColor(.systemBlue, for: .normal)
+            cancelBtn.titleLabel?.font = .systemFont(ofSize: 16)
+            cancelBtn.addTarget(self, action: #selector(self.cancelLesson), for: .touchUpInside)
+            let cancelBarButton = UIBarButtonItem(customView: cancelBtn)
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItems = [cancelBarButton]
+        }
+    }
+    
+    func setUpDownloadView() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let downloadBtn = UIButton()
+            downloadBtn.setImage(UIImage(systemName: "icloud.and.arrow.down"), for: .normal)
+            downloadBtn.setTitle("Download", for: .normal)
+            downloadBtn.setTitleColor(.systemBlue, for: .normal)
+            downloadBtn.titleLabel?.font = .systemFont(ofSize: 16)
+            downloadBtn.addTarget(self, action: #selector(self.downloadLesson), for: .touchUpInside)
+            let downloadBarButton = UIBarButtonItem(customView: downloadBtn)
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItems = [downloadBarButton]
+        }
+    }
+    
+    @objc func downloadLesson() {
+        viewModel?.downloadLesson()
+    }
+    
+    @objc func cancelLesson() {
+        viewModel?.cancelLessonDownloading()
     }
 }
