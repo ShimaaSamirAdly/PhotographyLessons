@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol DownloadLessonRepo {
-    func downloadFile(withUrl url: URL) -> AnyPublisher<URL, Error>
+    func downloadFile(withUrl url: URL, fileName: String) -> AnyPublisher<URL, Error>
 }

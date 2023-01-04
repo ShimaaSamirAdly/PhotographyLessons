@@ -26,7 +26,6 @@ class LessonDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppDelegate.orientationLock = .all
         setUpObservables()
         setUpUI()
         setUpVideoState()
@@ -35,10 +34,11 @@ class LessonDetailsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        AppDelegate.orientationLock = .all
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
         refreshViewsData()
         setUpPlayBtnState()
-//        UIDevice.current.setValue(UIInterfaceOrientation.portrait, forKey: "orientation")
-//        self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -202,7 +202,7 @@ class LessonDetailsViewController: UIViewController {
     }
     
     func setUpDownloadView() {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
             guard let self = self else { return }
             let downloadBtn = UIButton()
             downloadBtn.setImage(UIImage(systemName: "icloud.and.arrow.down"), for: .normal)

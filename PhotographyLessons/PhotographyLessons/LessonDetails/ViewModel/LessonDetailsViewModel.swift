@@ -65,7 +65,8 @@ class LessonDetailsViewModel {
     
     func downloadLesson() {
         guard let videoUrl = URL(string: getLessonVideoUrl()) else { return }
-        let downloadPublisher = downloadLessonUseCase.downloadLesson(withUrl: videoUrl)
+        let lessonTitle = getLessonTitle()
+        let downloadPublisher = downloadLessonUseCase.downloadLesson(withUrl: videoUrl, fileName: "\(lessonTitle).mp4")
         downloadPublisher.sink { [weak self] completion in
             guard let self = self else { return }
             self.showProgressViewPassThrough.send(false)
@@ -97,8 +98,11 @@ class LessonDetailsViewModel {
         Task { [weak self] in
             guard let self = self, let videoUrl = URL(string: getLessonVideoUrl()) else { return }
             await self.observeProgressUseCase.observeDownloadProgress(withUrl: videoUrl)?.sink(receiveValue: { progressValue in
+                print(progressValue)
+                if !progressValue.isNaN {
                     self.progressCountPassThrough.send(progressValue)
-                }).store(in: &self.cancellableSet)
+                }
+            }).store(in: &self.cancellableSet)
         }
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Photos
 
 class DownloadManager {
     static let shared = DownloadManager()
@@ -15,11 +16,12 @@ class DownloadManager {
     
     private init() { }
     
-    func downloadFile(withUrl url: URL) -> AnyPublisher<URL, Error>  {
+    func downloadFile(withUrl url: URL, fileName: String) -> AnyPublisher<URL, Error>  {
         Future<URL, Error> { [weak self] promise in
             guard let self = self else { return }
             let task = URLSession.shared.downloadTask(with: url) { localURL, urlResponse, error in
                 if let localURL = localURL {
+                    self.saveFileLocally(with: localURL, fileName: fileName)
                     promise(.success(localURL))
                 } else if let error = error {
                     promise(.failure(error))
@@ -61,5 +63,29 @@ class DownloadManager {
         let tasks = await URLSession.shared.tasks.2
         let task = tasks.first(where: { $0.originalRequest?.url == url })
         return task
+    }
+    
+    func saveFileLocally(with localUrl: URL, fileName: String) {
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let destinationUrl = documentsUrl.appendingPathComponent(fileName)
+        do {
+           try FileManager.default.moveItem(at: localUrl, to: destinationUrl)
+            PHPhotoLibrary.requestAuthorization({ (authorizationStatus: PHAuthorizationStatus) -> Void in
+                if authorizationStatus == .authorized {
+                    PHPhotoLibrary.shared().performChanges({
+                        PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: destinationUrl)}) { completed, error in
+                            if completed {
+                                print("Success")
+                            } else if let error = error {
+                                print("failed \(error)")
+                            }
+                        }
+                } else {
+                    print("failed")
+                }
+            })
+        } catch (let error) {
+            print("failed \(error)")
+        }
     }
 }

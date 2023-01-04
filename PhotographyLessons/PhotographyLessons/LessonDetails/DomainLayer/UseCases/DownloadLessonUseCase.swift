@@ -11,7 +11,7 @@ import Combine
 struct DownloadLessonUseCase {
     var repo: DownloadLessonRepo
     
-    func downloadLesson(withUrl url: URL) -> AnyPublisher<URL, Error> {
-        repo.downloadFile(withUrl: url)
+    func downloadLesson(withUrl url: URL, fileName: String) -> AnyPublisher<URL, Error> {
+        repo.downloadFile(withUrl: url, fileName: fileName)
     }
 }

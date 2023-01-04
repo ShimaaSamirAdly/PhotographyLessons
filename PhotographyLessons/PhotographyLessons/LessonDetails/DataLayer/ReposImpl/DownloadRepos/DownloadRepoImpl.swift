@@ -7,11 +7,12 @@
 
 import Foundation
 import Combine
+import Photos
 
 class DownloadRepoImpl: DownloadLessonRepo, CancelLessonRepo,
                         CheckDownloadStateRepo, ObserveDownloadRepo {
-    func downloadFile(withUrl url: URL) -> AnyPublisher<URL, Error> {
-        DownloadManager.shared.downloadFile(withUrl: url)
+    func downloadFile(withUrl url: URL, fileName: String) -> AnyPublisher<URL, Error> {
+        DownloadManager.shared.downloadFile(withUrl: url, fileName: fileName)
     }
     
     func cancelFileDownloading(withUrl url: URL) async {

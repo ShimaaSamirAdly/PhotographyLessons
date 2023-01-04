@@ -47,7 +47,7 @@ extension LessonDetailsViewController {
     }
     
     @objc func playPauseVideo(forceStop: Bool = false) {
-        if player?.timeControlStatus == .playing || forceStop {
+        if player?.timeControlStatus != .paused || forceStop {
             player?.pause()
         } else {
             player?.play()
@@ -58,7 +58,7 @@ extension LessonDetailsViewController {
     }
     
     func setUpPlayBtnState() {
-        if player?.timeControlStatus == .playing {
+        if player?.timeControlStatus != .paused {
             playBtn.setImage(UIImage(named:  "ic_pauseVideo")?.withRenderingMode(.alwaysTemplate), for: .normal)
         } else {
             playBtn.setImage(UIImage(named: "ic_playVideo")?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -73,7 +73,7 @@ extension LessonDetailsViewController {
             UIView.transition(with: self.playBtn, duration: 0.4,
                               options: .transitionCrossDissolve,
                               animations: {
-                self.playBtn.isHidden = self.player?.timeControlStatus == .playing
+                self.playBtn.isHidden = self.player?.timeControlStatus != .paused
             })
         }
     }
