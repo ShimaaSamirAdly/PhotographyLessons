@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LessonsRepo {
-    func getLessons() async -> ([LessonModel]?, String)
+    func getLessons() async throws -> [LessonModel]?
 }
