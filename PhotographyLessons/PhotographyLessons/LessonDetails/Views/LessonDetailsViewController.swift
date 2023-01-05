@@ -153,6 +153,7 @@ class LessonDetailsViewController: UIViewController {
         nextBtn.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -10).isActive = true
         setUpNextBtnStyle()
         nextBtn.addTarget(self, action: #selector(nextBtnPressed), for: .touchUpInside)
+        nextBtn.accessibilityIdentifier = "nextLessonButton"
     }
     
     func setUpNextBtnStyle() {
@@ -198,6 +199,7 @@ class LessonDetailsViewController: UIViewController {
             cancelBtn.addTarget(self, action: #selector(self.cancelLesson), for: .touchUpInside)
             let cancelBarButton = UIBarButtonItem(customView: cancelBtn)
             self.navigationController?.navigationBar.topItem?.rightBarButtonItems = [cancelBarButton]
+            cancelBtn.accessibilityIdentifier = "cancelButton"
         }
     }
     
@@ -212,6 +214,7 @@ class LessonDetailsViewController: UIViewController {
             downloadBtn.addTarget(self, action: #selector(self.downloadLesson), for: .touchUpInside)
             let downloadBarButton = UIBarButtonItem(customView: downloadBtn)
             self.navigationController?.navigationBar.topItem?.rightBarButtonItems = [downloadBarButton]
+            downloadBtn.accessibilityIdentifier = "downloadButton"
         }
     }
     

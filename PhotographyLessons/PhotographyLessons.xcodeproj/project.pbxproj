@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7387AEB29664C2500DA0E1E /* LessonListHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7387AEA29664C2500DA0E1E /* LessonListHandlerMock.swift */; };
+		C7387AED29664CB100DA0E1E /* LessonRepoMockImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7387AEC29664CB100DA0E1E /* LessonRepoMockImpl.swift */; };
+		C7387AEF296653F100DA0E1E /* LessonDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7387AEE296653F100DA0E1E /* LessonDetailsTests.swift */; };
+		C7387AF1296656D300DA0E1E /* LessonDetailsViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7387AF0296656D300DA0E1E /* LessonDetailsViewModelMock.swift */; };
+		C7387AF329665A9D00DA0E1E /* LessonDetailsRepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7387AF229665A9D00DA0E1E /* LessonDetailsRepoMock.swift */; };
 		C73E6E4B295F8E31007FA22A /* PhotographyLessonsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E6E4A295F8E31007FA22A /* PhotographyLessonsApp.swift */; };
 		C73E6E4F295F8E33007FA22A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E6E4E295F8E33007FA22A /* Assets.xcassets */; };
 		C73E6E52295F8E33007FA22A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73E6E51295F8E33007FA22A /* Preview Assets.xcassets */; };
@@ -76,6 +81,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C7387AEA29664C2500DA0E1E /* LessonListHandlerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListHandlerMock.swift; sourceTree = "<group>"; };
+		C7387AEC29664CB100DA0E1E /* LessonRepoMockImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRepoMockImpl.swift; sourceTree = "<group>"; };
+		C7387AEE296653F100DA0E1E /* LessonDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsTests.swift; sourceTree = "<group>"; };
+		C7387AF0296656D300DA0E1E /* LessonDetailsViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsViewModelMock.swift; sourceTree = "<group>"; };
+		C7387AF229665A9D00DA0E1E /* LessonDetailsRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsRepoMock.swift; sourceTree = "<group>"; };
 		C73E6E47295F8E31007FA22A /* PhotographyLessons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotographyLessons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73E6E4A295F8E31007FA22A /* PhotographyLessonsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyLessonsApp.swift; sourceTree = "<group>"; };
 		C73E6E4E295F8E33007FA22A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +165,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7387AE929664BF900DA0E1E /* MockLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C7387AEA29664C2500DA0E1E /* LessonListHandlerMock.swift */,
+				C7387AEC29664CB100DA0E1E /* LessonRepoMockImpl.swift */,
+				C7387AF0296656D300DA0E1E /* LessonDetailsViewModelMock.swift */,
+				C7387AF229665A9D00DA0E1E /* LessonDetailsRepoMock.swift */,
+			);
+			path = MockLayer;
+			sourceTree = "<group>";
+		};
 		C73E6E3E295F8E31007FA22A = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +224,9 @@
 		C73E6E5F295F8E33007FA22A /* PhotographyLessonsTests */ = {
 			isa = PBXGroup;
 			children = (
+				C7387AE929664BF900DA0E1E /* MockLayer */,
 				C73E6E60295F8E33007FA22A /* PhotographyLessonsTests.swift */,
+				C7387AEE296653F100DA0E1E /* LessonDetailsTests.swift */,
 			);
 			path = PhotographyLessonsTests;
 			sourceTree = "<group>";
@@ -654,6 +677,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7387AF329665A9D00DA0E1E /* LessonDetailsRepoMock.swift in Sources */,
+				C7387AF1296656D300DA0E1E /* LessonDetailsViewModelMock.swift in Sources */,
+				C7387AEF296653F100DA0E1E /* LessonDetailsTests.swift in Sources */,
+				C7387AED29664CB100DA0E1E /* LessonRepoMockImpl.swift in Sources */,
+				C7387AEB29664C2500DA0E1E /* LessonListHandlerMock.swift in Sources */,
 				C73E6E61295F8E33007FA22A /* PhotographyLessonsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

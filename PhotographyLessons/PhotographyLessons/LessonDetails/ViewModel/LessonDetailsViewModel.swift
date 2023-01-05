@@ -97,7 +97,8 @@ class LessonDetailsViewModel {
     func observeDownloadProgress() {
         Task { [weak self] in
             guard let self = self, let videoUrl = URL(string: getLessonVideoUrl()) else { return }
-            await self.observeProgressUseCase.observeDownloadProgress(withUrl: videoUrl)?.sink(receiveValue: { progressValue in
+            await self.observeProgressUseCase.observeDownloadProgress(withUrl: videoUrl)?
+                .sink(receiveValue: { progressValue in
                 print(progressValue)
                 if !progressValue.isNaN {
                     self.progressCountPassThrough.send(progressValue)
