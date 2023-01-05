@@ -17,6 +17,7 @@ extension LessonsListView {
         @Published var errorMsg = ""
         @Published var isLoading = false
         @Published var showCachedData = false
+        @Published var isViewAppeared = true
         var cancellableSet = Set<AnyCancellable>()
         
         func getLessons() async -> [LessonModel] {
@@ -29,7 +30,7 @@ extension LessonsListView {
                     cacheLessonsUseCase.cachLessons(lessons: lessons)
                     return lessons
                 case .failure(let error):
-                    errorMsg = error.errorDescription
+                    errorMsg = isViewAppeared ? error.errorDescription : ""
                     if error == .noInternet {
                         showCachedData = true
                     }

@@ -15,8 +15,6 @@ public class NetworkHandler {
 
     public func requestAsync<T: Codable>(target: NetworkApis, model: T.Type) async throws
     -> Any? {
-//        var error: ApiErrors = .none
-//        var responseModel: Any?
         do {
             let result: (data: Data, response: URLResponse) = try await URLSession.shared.data(for: target.request)
             if let httpResponse = result.response as? HTTPURLResponse {
@@ -25,8 +23,6 @@ public class NetworkHandler {
                     return responseModel
                 } else {
                     let error = ApiErrors(rawValue: httpResponse.statusCode) ?? ApiErrors.none
-//                    responseModel = try JSONDecoder().decode(MainResonseModel.self, from: result.data)
-//                    return (responseModel, error)
                     throw error
                 }
             }
@@ -34,7 +30,6 @@ public class NetworkHandler {
             print("Failed connection")
             throw ApiErrors.badRequest
         }
-//        return (responseModel, error)
         return nil
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import Combine
 @testable import PhotographyLessons
 
 class LessonDetailsViewModelMock: LessonDetailsViewModel {

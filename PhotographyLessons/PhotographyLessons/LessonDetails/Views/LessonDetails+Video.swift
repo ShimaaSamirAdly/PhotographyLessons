@@ -39,7 +39,10 @@ extension LessonDetailsViewController {
     }
     
     func setUpFullScreenVideo() {
-        if fullScreenOn { return }
+        if fullScreenOn {
+            fullScreenOn = false
+            return
+        }
         self.fullScreenOn = true
         videoPlayerController.player = player
         playerLayer?.player = nil

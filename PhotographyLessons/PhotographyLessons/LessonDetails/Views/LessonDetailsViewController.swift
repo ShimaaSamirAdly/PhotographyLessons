@@ -32,11 +32,17 @@ class LessonDetailsViewController: UIViewController {
         viewModel?.checkIfLessonDownloading()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.isHidden = true
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         AppDelegate.orientationLock = .all
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
+        view.isHidden = false
         refreshViewsData()
         setUpPlayBtnState()
     }
